@@ -55,6 +55,7 @@ We will create 3 custom roles, one for the resource group where ASA will reside,
 https://learn.microsoft.com/en-us/azure/aks/concepts-identity#aks-cluster-identity-permissions
 
 *Note* Please discard anything VMAS related in the above link, ASA uses VMSS only 
+*Note* Update the $YOUR_AZURE_SUB_ID to your subscription ID in the JSON files
 
 ```bash
 ### create a role definition for the resource group where ASA will reside (IPs, LBs, Disks, Storage, VMSS, etc...)
