@@ -6,6 +6,7 @@ The below walkthrough is aimed for customers who want to run Azure Spring Apps i
 ## Define variables 
 
 ### Define variables 
+```bash
 RESOURCE_GROUP=rg-spring-cloud
 VNET_RESOURCE_GROUP=rg-spring-cloud-vnet
 SPRING_CLOUD_APP_NAME=az-spring-cloud-app
@@ -47,7 +48,7 @@ APPS_SUBNET_ID=$(az network vnet subnet show --name $APPS_SUBNET_NAME --vnet-nam
 RUNTIME_SUBNET_ROUTE_TABLE_ID=$(az network route-table show --name $RUNTIME_SUBNET_ROUTE_TABLE_NAME --resource-group $VNET_RESOURCE_GROUP --query id --output tsv)
 
 APPS_SUBNET_ROUTE_TABLE_ID=$(az network route-table show --name $RUNTIME_SUBNET_ROUTE_TABLE_NAME --resource-group $VNET_RESOURCE_GROUP --query id --output tsv)
-
+```
 # Create Custom Role Definitions 
 
 We will create 3 custom roles, one for the resource group where ASA will reside, one for the route table, and one for the virtual network, given that ASA is managing AKS clusters underneath, the roles required are similar to the below  
@@ -55,7 +56,7 @@ https://learn.microsoft.com/en-us/azure/aks/concepts-identity#aks-cluster-identi
 
 *Note* Please discard anything VMAS related in the above link, ASA uses VMSS only 
 
-
+```bash
 ### create a role definition for the resource group where ASA will reside (IPs, LBs, Disks, Storage, VMSS, etc...)
 az role definition create --role-definition ./asa_permissions_resource_group.json
 
@@ -86,11 +87,12 @@ az role assignment create --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2 --scop
 
 ### list role assignments for ASA service 
 az role assignment list --all --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2 --output table
-
+```
 
 
 # ASA Deployment 
 
+```bash
 ### deploy an an azure spring apps instance in the vnet
 az spring create \
 --name $SPRING_CLOUD_APP_NAME \
@@ -121,7 +123,7 @@ az role assignment list --all --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2 --
 
 ### validate that the deployment is still successful
 az spring show --name $SPRING_CLOUD_APP_NAME --resource-group $RESOURCE_GROUP --output table
-
+```
 
 # Validations
 In order to validate that deleting role assignment didn't break the installtion, we will be deploying an APP, try to scale which should add a new route table. in your case run the validations required for your use case.
@@ -131,6 +133,7 @@ In order to validate that deleting role assignment didn't break the installtion,
 # Clean Up 
 When time comes for deletion you will need to add the roles again to be able to delete the ASA instance 
 
+```bash
 ### add the roles again to be able to delete the ASA instance
 az role assignment create --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2 --scope $VNET_ID --role "User Access Administrator"
 az role assignment create --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2 --scope $VNET_ID --role "Network Contributor"
@@ -140,7 +143,7 @@ az spring delete --name $SPRING_CLOUD_APP_NAME --resource-group $RESOURCE_GROUP 
 
 
 
-### delete the resource group
+### delete the resource groups
 az group delete --name $RESOURCE_GROUP --yes
 az group delete --name $VNET_RESOURCE_GROUP --yes
-
+```
