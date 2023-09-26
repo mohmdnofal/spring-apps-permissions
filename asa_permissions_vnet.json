@@ -11,6 +11,6 @@
 
   ],
   "AssignableScopes": [
-   "/subscriptions/d9491389-7531-4f46-bd9e-553c8b471780"
+   "/subscriptions/$YOUR_AZURE_SUB_ID"
  ]
 }
