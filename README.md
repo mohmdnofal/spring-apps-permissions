@@ -3,17 +3,17 @@ The below walkthrough is aimed for customers who want to run Azure Spring Apps i
 
 ## Workaround Summary 
 
-1- "User Access Administrator" and "Network Contributor" are needed for 3 operations as of now
+1.  "User Access Administrator" and "Network Contributor" are needed for 3 operations as of now
 - During deployment
 - If you start/stop the whole service instance https://learn.microsoft.com/en-us/azure/spring-apps/how-to-start-stop-service?tabs=azure-portal
 - During deletion
-2- We will create 3 new custom role defentions which we will assign to the ASA service along with the above roles
+2. We will create 3 new custom role defentions which we will assign to the ASA service along with the above roles
 - a role for the resource group where ASA will reside
 - a role for the VNET access
 - a role for the route table access
-3- This custom role will be used during creation
-4- Once the instance is created, we can modify the roles assigned to the service by deleting the "User Access Administrator" and "Network Contributor" roles, and then run our validations
-5- in case we need to start/stop the whole service instance or we need to delete it, we need to modfiy the assigned roles by adding the "User Access Administrator" and "Network Contributor" roles again
+3. This custom role will be used during creation
+4. Once the instance is created, we can modify the roles assigned to the service by deleting the "User Access Administrator" and "Network Contributor" roles, and then run our validations
+5. in case we need to start/stop the whole service instance or we need to delete it, we need to modfiy the assigned roles by adding the "User Access Administrator" and "Network Contributor" roles again
 
 
 ## Define variables 
