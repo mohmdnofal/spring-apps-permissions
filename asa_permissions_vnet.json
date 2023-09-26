@@ -1,0 +1,16 @@
+{
+  "Name": "ASA Permissions VNET",
+  "IsCustom": true,
+  "Description": "ASA Required Permissions for VNET access",
+  "Actions": [
+    "Microsoft.Network/virtualNetworks/subnets/join/action",
+    "Microsoft.Network/virtualNetworks/read",
+    "Microsoft.Network/virtualNetworks/subnets/read"
+  ],
+  "NotActions": [
+
+  ],
+  "AssignableScopes": [
+   "/subscriptions/d9491389-7531-4f46-bd9e-553c8b471780"
+ ]
+}

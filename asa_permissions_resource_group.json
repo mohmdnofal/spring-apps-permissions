@@ -1,0 +1,42 @@
+{
+  "Name": "ASA Permissions Role",
+  "IsCustom": true,
+  "Description": "ASA Required Permissions For Resource Group",
+  "Actions": [
+    "Microsoft.Network/loadBalancers/delete",
+    "Microsoft.Network/loadBalancers/read",
+    "Microsoft.Network/loadBalancers/write",
+    "Microsoft.Network/publicIPAddresses/delete",
+    "Microsoft.Network/publicIPAddresses/read",
+    "Microsoft.Network/publicIPAddresses/write",
+    "Microsoft.Network/publicIPAddresses/join/action",
+    "Microsoft.Compute/disks/delete",
+    "Microsoft.Compute/disks/read", 
+    "Microsoft.Compute/disks/write",
+    "Microsoft.Compute/locations/DiskOperations/read",
+    "Microsoft.Storage/storageAccounts/delete",
+    "Microsoft.Storage/storageAccounts/listKeys/action",
+    "Microsoft.Storage/storageAccounts/read",
+    "Microsoft.Storage/storageAccounts/write",
+    "Microsoft.Storage/operations/read",
+    "Microsoft.Compute/virtualMachineScaleSets/read",
+    "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read",
+    "Microsoft.Compute/virtualMachineScaleSets/virtualmachines/instanceView/read",
+    "Microsoft.Compute/virtualMachineScaleSets/write",
+    "Microsoft.Compute/virtualMachineScaleSets/delete",
+    "Microsoft.Compute/virtualMachineScaleSets/virtualmachines/write",
+    "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/read",
+    "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipconfigurations/publicipaddresses/read",
+    "Microsoft.Compute/snapshots/delete",
+    "Microsoft.Compute/snapshots/read",
+    "Microsoft.Compute/snapshots/write",
+    "Microsoft.Compute/locations/vmSizes/read",
+    "Microsoft.Compute/locations/operations/read"
+  ],
+  "NotActions": [
+
+  ],
+  "AssignableScopes": [
+   "/subscriptions/d9491389-7531-4f46-bd9e-553c8b471780"
+ ]
+}

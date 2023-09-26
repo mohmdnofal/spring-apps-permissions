@@ -1,0 +1,18 @@
+{
+  "Name": "ASA Permissions Route Table",
+  "IsCustom": true,
+  "Description": "ASA Required Route Table",
+  "Actions": [
+    "Microsoft.Network/routeTables/read",
+    "Microsoft.Network/routeTables/routes/delete",
+    "Microsoft.Network/routeTables/routes/read",
+    "Microsoft.Network/routeTables/routes/write",
+    "Microsoft.Network/routeTables/write"
+  ],
+  "NotActions": [
+
+  ],
+  "AssignableScopes": [
+   "/subscriptions/d9491389-7531-4f46-bd9e-553c8b471780"
+ ]
+}
